@@ -1,5 +1,5 @@
 {% set name = "trainstation" %}
-{% set version = "0.2" %}
+{% set version = "1.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/trainstation-{{ version }}.tar.gz
-  sha256: 285f445535a25fbe1ac544e33170ab1876533b0faacdd42ffc96dc1804ea0e9d
+  sha256: 00da4e99ffdf309d0f1a3d6a191d845002d49f478371a560019b6e22de55945d
 
 build:
   number: 0
@@ -38,7 +38,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Convenient training of linear models'
+  summary: Convenient training of linear models
   description: |
     trainstation is a tool that allows the efficient construction of 
     linear models. It provides supplementary functionality for handling 
