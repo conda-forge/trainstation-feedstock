@@ -1,5 +1,5 @@
 {% set name = "trainstation" %}
-{% set version = "1.1" %}
+{% set version = "1.2" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/trainstation-{{ version }}.tar.gz
-  sha256: fe84024aea1d1af200cc5290023e8e7930ce21c0d4401d368a8e3ab231922306
+  sha256: e2cda1716a09f98930aa34640bdb2ac05e49e675afe54979d81657f3fac37d9b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
