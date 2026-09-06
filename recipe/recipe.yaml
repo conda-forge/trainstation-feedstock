@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: trainstation
+  version: "1.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/trainstation-${{ version }}.tar.gz
+  sha256: e2cda1716a09f98930aa34640bdb2ac05e49e675afe54979d81657f3fac37d9b
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - numpy >=1.12
+    - python >=${{ python_min }}
+    - scikit-learn
+    - scipy
+
+tests:
+  - python:
+      imports:
+        - trainstation
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: Convenient training of linear models
+  description: |
+    trainstation is a tool that allows the efficient construction of
+    linear models. It provides supplementary functionality for handling
+    data and model metrics and relies on the scikit-learn library for the
+    actual training. trainstation has been originally developed to aid
+    the construction of force constant (via hiphive) andcluster expansions
+    (via icet). Since it has proven to be valuable in more general
+    contexts and to simplify the maintenance of the two aforementioned
+    packages, the functionality has been moved into a separate package.
+  homepage: http://trainstation.materialsmodeling.org/
+  repository: https://gitlab.com/materials-modeling/trainstation
+  documentation: http://trainstation.materialsmodeling.org/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
